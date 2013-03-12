@@ -19,4 +19,5 @@ AC_SUBST(APPLET_LIBS)
 AC_OUTPUT([
 Makefile
 applet-c/Makefile
+applet-python/Makefile
 ])

@@ -1,1 +1,1 @@
-SUBDIRS = applet-c
+SUBDIRS = applet-c applet-python
