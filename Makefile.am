@@ -1,1 +1,1 @@
-SUBDIRS = applet-c applet-python
+SUBDIRS = applet-c applet-python cairo-test
