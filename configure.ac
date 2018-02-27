@@ -11,22 +11,7 @@ AC_PROG_INSTALL
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz tar-ustar -Wno-portability])
 
 
-# GTK+ API version checking
-AC_MSG_CHECKING([Checking used GTK+ API version])
-AC_ARG_WITH([gtk], [AS_HELP_STRING([--with-gtk=2.0|3.0],[Define GTK+ API version to use (default: 2.0)])],
-  [case "$with_gtk" in
-     2.0|3.0) ;;
-     *) AC_MSG_ERROR([Invalid GTK+ API version specified]) ;;
-   esac], [with_gtk=2.0])
-AC_MSG_RESULT([$with_gtk])
-case "$with_gtk" in
-  2.0) GTK_API_VERSION=2.0
-       GTK_REQUIRED=2.24.0
-       ;;
-  3.0) GTK_API_VERSION=3.0
-       GTK_REQUIRED=3.0.0
-       ;;
-esac
+GTK_REQUIRED=3.0.0
 
 # applet-c
 PKG_CHECK_MODULES(APPLET, libmatepanelapplet-4.0 >= 1.7.0)
@@ -34,7 +19,7 @@ AC_SUBST(APPLET_CFLAGS)
 AC_SUBST(APPLET_LIBS)
 
 # cairo-test
-PKG_CHECK_MODULES(CAIRO_TEST, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED)
+PKG_CHECK_MODULES(CAIRO_TEST, gtk+-3.0 >= $GTK_REQUIRED)
 AC_SUBST(CAIRO_TEST_CFLAGS)
 AC_SUBST(CAIRO_TEST_LIBS)
 
